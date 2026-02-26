@@ -295,6 +295,9 @@ async def get_sources():
                 "accentColor": "#7C4DFF",
                 "category": "free",
                 "isVerified": False,
+                "hasCategories": True,
+                "searchUrlTemplate": "https://masa49.org/?s={query}",
+                "sourceId": "masa",
             },
             {
                 "baseUrl": "https://xhamster.com/",
@@ -303,6 +306,9 @@ async def get_sources():
                 "accentColor": "#FF5252",
                 "category": "free",
                 "isVerified": False,
+                "hasCategories": True,
+                "searchUrlTemplate": "https://xhamster.com/search/videos?q={query}",
+                "sourceId": "xhamster",
             },
             {
                 "baseUrl": "https://www.xnxx.com/",
@@ -311,6 +317,9 @@ async def get_sources():
                 "accentColor": "#448AFF",
                 "category": "free",
                 "isVerified": True,
+                "hasCategories": True,
+                "searchUrlTemplate": "https://www.xnxx.com/search/{query}",
+                "sourceId": "xnxx",
             },
             {
                 "baseUrl": "https://www.xvideos.com/",
@@ -319,6 +328,9 @@ async def get_sources():
                 "accentColor": "#FFAB40",
                 "category": "free",
                 "isVerified": True,
+                "hasCategories": True,
+                "searchUrlTemplate": "https://www.xvideos.com/?k={query}",
+                "sourceId": "xvideos",
             },
             {
                 "baseUrl": "https://www.pornhub.com/",
@@ -327,6 +339,9 @@ async def get_sources():
                 "accentColor": "#FF9100",
                 "category": "free",
                 "isVerified": False,
+                "hasCategories": True,
+                "searchUrlTemplate": "https://www.pornhub.com/video/search?search={query}",
+                "sourceId": "pornhub",
             },
             {
                 "baseUrl": "https://www.youporn.com/",
@@ -335,6 +350,9 @@ async def get_sources():
                 "accentColor": "#FF4081",
                 "category": "free",
                 "isVerified": False,
+                "hasCategories": True,
+                "searchUrlTemplate": "https://www.youporn.com/search/?query={query}",
+                "sourceId": "youporn",
             },
             {
                 "baseUrl": "https://www.redtube.com/",
@@ -343,6 +361,9 @@ async def get_sources():
                 "accentColor": "#D32F2F",
                 "category": "free",
                 "isVerified": False,
+                "hasCategories": True,
+                "searchUrlTemplate": "https://www.redtube.com/?search={query}",
+                "sourceId": "redtube",
             },
             {
                 "baseUrl": "https://beeg.com/",
@@ -351,6 +372,9 @@ async def get_sources():
                 "accentColor": "#00BFA5",
                 "category": "free",
                 "isVerified": False,
+                "hasCategories": True,
+                "searchUrlTemplate": "https://beeg.com/?f={query}",
+                "sourceId": "beeg",
             },
             {
                 "baseUrl": "https://spankbang.com/",
@@ -359,6 +383,9 @@ async def get_sources():
                 "accentColor": "#FFC107",
                 "category": "free",
                 "isVerified": False,
+                "hasCategories": True,
+                "searchUrlTemplate": "https://spankbang.com/s/{query}/",
+                "sourceId": "spankbang",
             },
             {
                 "baseUrl": "https://fapnut.net/",
@@ -367,6 +394,9 @@ async def get_sources():
                 "accentColor": "#00AFF0",
                 "category": "paid",
                 "isVerified": False,
+                "hasCategories": True,
+                "searchUrlTemplate": "https://fapnut.net/?s={query}",
+                "sourceId": "fapnut",
             },
             {
                 "baseUrl": "https://pornxp.io/",
@@ -375,6 +405,9 @@ async def get_sources():
                 "accentColor": "#1a2137",
                 "category": "free",
                 "isVerified": False,
+                "hasCategories": True,
+                "searchUrlTemplate": "https://pornxp.io/search?q={query}",
+                "sourceId": "pornxp",
             },
         ],
     }
