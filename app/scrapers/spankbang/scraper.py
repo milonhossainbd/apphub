@@ -22,37 +22,47 @@ def get_categories() -> list[dict]:
         return []
 
 async def fetch_html(url: str) -> str:
-    # Try curl_cffi first (bypasses Cloudflare)
-    try:
-        async with AsyncSession(
-            impersonate="safari15_3",
-            headers={
-                "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/15.3 Safari/605.1.15",
-                "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
-                "Referer": "https://spankbang.com/",
-                "Cookie": "age_verified=1; sb_theme=dark",
-            },
-            timeout=20.0
-        ) as client:
-            resp = await client.get(url)
-            resp.raise_for_status()
-            return resp.text
-    except Exception as e:
-        print(f"⚠️ SpankBang curl_cffi failed: {e}. Falling back to httpx...")
-        # Fallback to httpx if curl_cffi fails
-        import httpx
-        async with httpx.AsyncClient(
-            headers={
-                "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0 Safari/537.36",
-                "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8",
-                "Cookie": "age_verified=1; sb_theme=dark",
-            },
-            follow_redirects=True,
-            timeout=20.0
-        ) as client:
-            resp = await client.get(url)
-            resp.raise_for_status()
-            return resp.text
+    # Try different impersonations to bypass blocks
+    impersonations = ["chrome120", "chrome110", "safari15_3"]
+    last_error = None
+    
+    for imp in impersonations:
+        try:
+            async with AsyncSession(
+                impersonate=imp,
+                headers={
+                    "Referer": "https://spankbang.com/",
+                    "Cookie": "age_verified=1; sb_theme=dark",
+                },
+                timeout=20.0
+            ) as client:
+                resp = await client.get(url)
+                if resp.status_code == 200:
+                    return resp.text
+                if resp.status_code == 403:
+                    last_error = f"403 Forbidden with {imp}"
+                    continue
+                resp.raise_for_status()
+                return resp.text
+        except Exception as e:
+            last_error = f"{imp} error: {e}"
+            continue
+
+    print(f"⚠️ SpankBang all curl_cffi attempts failed. Last error: {last_error}. Falling back to httpx...")
+    # Fallback to httpx if curl_cffi fails
+    import httpx
+    async with httpx.AsyncClient(
+        headers={
+            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0 Safari/537.36",
+            "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8",
+            "Cookie": "age_verified=1; sb_theme=dark",
+        },
+        follow_redirects=True,
+        timeout=20.0
+    ) as client:
+        resp = await client.get(url)
+        resp.raise_for_status()
+        return resp.text
 
 
 def _extract_video_streams(html: str) -> dict[str, Any]:
