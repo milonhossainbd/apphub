@@ -319,13 +319,6 @@ async def get_notifications():
             action_url="apphub://rewards",
             action_url="apphub://rewards",
             created_at=datetime.now()
-        ),
-        NotificationItem(
-            id="4",
-            title="Media Maintenance",
-            message="Media services will be down for 30 minutes tonight at 2 AM.",
-            type="error",
-            created_at=datetime.now()
         )
     ]
     return NotificationResponse(
