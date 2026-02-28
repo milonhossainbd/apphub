@@ -317,8 +317,7 @@ async def get_notifications():
             type="warning",
             action_text="View Plans",
             action_url="apphub://rewards",
-            show_in_bar=True,
-            target_page="explore",
+            action_url="apphub://rewards",
             created_at=datetime.now()
         ),
         NotificationItem(
@@ -326,8 +325,6 @@ async def get_notifications():
             title="Media Maintenance",
             message="Media services will be down for 30 minutes tonight at 2 AM.",
             type="error",
-            show_in_bar=True,
-            target_page="media",
             created_at=datetime.now()
         ),
         NotificationItem(

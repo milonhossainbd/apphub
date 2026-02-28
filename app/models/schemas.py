@@ -212,8 +212,6 @@ class NotificationItem(BaseModel):
     action_text: Optional[str] = None
     action_url: Optional[str] = None
     is_dismissible: bool = True
-    show_in_bar: bool = False
-    target_page: Optional[str] = None
     created_at: datetime = Field(default_factory=datetime.now)
 
 class NotificationResponse(BaseModel):
