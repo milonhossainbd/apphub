@@ -18,7 +18,7 @@ DUMMY_MEDIA_CONFIG = MediaConfigData(
             categories=[
                 MediaCategoryResponse(
                     id="WorldWide",
-                    title="WorldWide",
+                    title="World TV",
                     type="live",
                     icon="public_rounded",
                     color_hex="#2196F3",
