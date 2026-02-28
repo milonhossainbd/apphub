@@ -137,7 +137,7 @@ EXPLORE_SOURCES = [
     ExploreSourceResponse(
         baseUrl="https://hqporner.com/",
         nickname="HQPorner",
-        favicon="https://hqporner.com/favicon.ico",
+        favicon="https://raw.githubusercontent.com/milon4999/apphub-release/refs/heads/main/logo/favicon%20(8).ico",
         accentColor="#E91E63",
         category="free",
         isVerified=False,
