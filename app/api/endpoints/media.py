@@ -17,10 +17,10 @@ DUMMY_MEDIA_CONFIG = MediaConfigData(
             is_active=True,
             categories=[
                 MediaCategoryResponse(
-                    id="live_tv",
-                    title="Live TV",
+                    id="WorldWide",
+                    title="WorldWide",
                     type="live",
-                    icon="live_tv_rounded",
+                    icon="public_rounded",
                     color_hex="#2196F3",
                     playlist_url="https://iptv-org.github.io/iptv/index.m3u",
                 ),
